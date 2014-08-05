@@ -1,0 +1,43 @@
+﻿生成启动时间为 2014/8/3 16:20:03。
+     1>项目“C:\Users\Francis\documents\visual studio 2010\Projects\MFC_Client\MFC_Client\MFC_Client.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\MFC_Client.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         E:\Working Softwares\vs2010\VC\bin\CL.exe /c /ZI /nologo /W0 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _AFXEXT /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\MFC_Client.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         E:\Working Softwares\vs2010\VC\bin\CL.exe /c /ZI /nologo /W0 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _AFXEXT /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MFC_Client.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CanvasFrame.cpp ServerConnector.cpp LocalFile.cpp MessageConstructor.cpp MFC_Client.cpp MFC_ClientDlg.cpp RecvTask.cpp
+         RecvTask.cpp
+         MFC_ClientDlg.cpp
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\mfc_clientdlg.cpp(203): error C2039: “getInstance”: 不是“Client”的成员
+                 c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\serverconnector.h(12) : 参见“Client”的声明
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\mfc_clientdlg.cpp(203): error C2227: “->sendMessage”的左边必须指向类/结构/联合/泛型类型
+                 类型是“'unknown-type'”
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\mfc_clientdlg.cpp(203): error C3861: “getInstance”: 找不到标识符
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\mfc_clientdlg.cpp(213): error C2039: “getInstance”: 不是“Client”的成员
+                 c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\serverconnector.h(12) : 参见“Client”的声明
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\mfc_clientdlg.cpp(213): error C2227: “->holdWindowInstance”的左边必须指向类/结构/联合/泛型类型
+                 类型是“'unknown-type'”
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\mfc_clientdlg.cpp(213): error C3861: “getInstance”: 找不到标识符
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\mfc_clientdlg.cpp(245): error C2065: “CHAT”: 未声明的标识符
+         MFC_Client.cpp
+         MessageConstructor.cpp
+         LocalFile.cpp
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\localfile.cpp(95): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "StdAfx.h"”?
+         ServerConnector.cpp
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\serverconnector.cpp(78): error C2059: 语法错误:“}”
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\serverconnector.cpp(86): error C2084: 函数“ServerConnector::~ServerConnector(void)”已有主体
+                 c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\serverconnector.h(21) : 参见“{dtor}”的前一个定义
+         CanvasFrame.cpp
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\canvasframe.cpp(43): error C2065: “DECLARE_SIZE”: 未声明的标识符
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\canvasframe.cpp(137): error C2065: “MOVE”: 未声明的标识符
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\canvasframe.cpp(161): error C2039: “getInstance”: 不是“Client”的成员
+                 c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\serverconnector.h(12) : 参见“Client”的声明
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\canvasframe.cpp(161): error C2227: “->sendMessage”的左边必须指向类/结构/联合/泛型类型
+                 类型是“'unknown-type'”
+     1>c:\users\francis\documents\visual studio 2010\projects\mfc_client\mfc_client\canvasframe.cpp(161): error C3861: “getInstance”: 找不到标识符
+         正在生成代码...
+     1>已完成生成项目“C:\Users\Francis\documents\visual studio 2010\Projects\MFC_Client\MFC_Client\MFC_Client.vcxproj”(rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:10.54
