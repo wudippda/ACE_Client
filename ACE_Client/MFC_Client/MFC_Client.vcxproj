@@ -105,9 +105,11 @@
   <ItemGroup>
     <ClInclude Include="ACE_headers.h" />
     <ClInclude Include="CanvasFrame.h" />
+    <ClInclude Include="DVE_Client.h" />
     <ClInclude Include="MessageDispatcher.h" />
     <ClInclude Include="MessageHandler.h" />
     <ClInclude Include="Reciever.h" />
+    <ClInclude Include="Sender.h" />
     <ClInclude Include="ServerConnector.h" />
     <ClInclude Include="COM.h" />
     <ClInclude Include="FileCommon.h" />
@@ -124,7 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CanvasFrame.cpp" />
+    <ClCompile Include="DVE_Client.cpp" />
     <ClCompile Include="MessageHandler.cpp" />
+    <ClCompile Include="Reciever.cpp" />
     <ClCompile Include="ServerConnector.cpp" />
     <ClCompile Include="LocalFile.cpp" />
     <ClCompile Include="MessageConstructor.cpp" />

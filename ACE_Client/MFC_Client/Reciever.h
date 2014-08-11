@@ -1,7 +1,6 @@
 #pragma once
 #include "stdafx.h"  
 #include "ACE_headers.h"
-#include "ace/Asynch_Acceptor.h"
 #include "MessageConstructor.h"
 #include "MessageDispatcher.h"
 #include "MessageHandler.h"
