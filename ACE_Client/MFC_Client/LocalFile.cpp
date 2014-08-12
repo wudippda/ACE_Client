@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "LocalFile.h"
 
 LocalFile::LocalFile(const char *fileName)
@@ -57,7 +58,7 @@ bool LocalFile::open(const char *fileName)
 
 	ACE_FILE_Connector conn;
 	this->fileAddr.set(fileName);
-	this->cacheFileName(fileName);
+	//this->cacheFileName(fileName);
 	return conn.connect(this->fileIO, this->fileAddr) == 0;
 }
 
@@ -76,19 +77,19 @@ int LocalFile::read(char *data, int length)
 	return this->fileIO.recv(data, length);
 }
 
-void LocalFile::cacheFileName(const char *fileName)
-{
-	int len = strlen(fileName);
-	this->pureFileName = "";
-	for(int ix = len - 1; ix >= 0; ix--)
-	{
-		if('\\' == fileName[ix])
-		{
-			break;
-		}
-		else
-		{
-			this->pureFileName.insert(0, fileName[ix]);
-		}
-	}
-}
+//void LocalFile::cacheFileName(const char *fileName)
+//{
+//	int len = strlen(fileName);
+//	this->pureFileName = "";
+//	for(int ix = len - 1; ix >= 0; ix--)
+//	{
+//		if('\\' == fileName[ix])
+//		{
+//			break;
+//		}
+//		else
+//		{
+//			this->pureFileName.insert(0, fileName[ix]);
+//		}
+//	}
+//}

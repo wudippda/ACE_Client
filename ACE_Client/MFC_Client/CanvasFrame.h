@@ -33,7 +33,7 @@ public:
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnPaint();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	char* Init();
+	void Init();
 	void setParent(CMFC_ClientDlg* Parent);
 	void setPos(int x,int y);
 	void DrawClient();

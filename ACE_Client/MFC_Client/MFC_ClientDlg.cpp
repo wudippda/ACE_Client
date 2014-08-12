@@ -5,11 +5,13 @@
 #include "MFC_Client.h"
 #include "MFC_ClientDlg.h"
 #include "afxdialogex.h"
-#include "ace/Addr.cpp" 
+#include "ACE_headers.h"
 #include "ServerConnector.h"
 #include <afxpriv.h>
 #include "CanvasFrame.h"
+#include "DVE_Client.h"
 #include "PARA_DEFINE.h"
+#include "MessageConstructor.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -173,24 +175,50 @@ void CMFC_ClientDlg::OnBnClickedOk()
 void CMFC_ClientDlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	ACE::init();  
-    if(ServerConnector::getInstance()->connect(REMOTE_HOST_PORT,REMOTE_HOST_IP) == 0)  
-    {  
-        AfxMessageBox(_T("Connection Successful!"));
+	ACE::init();
 
+	DVE_Client client;
+    //listen on specific port
+	ACE_INET_Addr addr(REMOTE_HOST_PORT,REMOTE_HOST_IP);
+	client.connector.open();
+	if(client.connector.connect(addr) == -1)
+	{
+		AfxMessageBox(_T("Connectin Failed!"));  
+	}
+	else
+	{
+		AfxMessageBox(_T("Connection Successful!"));
+		
+		//use Sender handler to send message
+		client.connector.getHandler()->wirteMessage(COM::CONNECT_SERVER);
 		GetDlgItem(IDC_BUTTON2)->EnableWindow(true);
 		GetDlgItem(IDC_BUTTON1)->EnableWindow(false);
 		GetDlgItem(IDC_STATICMessage)->SetWindowText(_T("Connected"));
+	}
+
+	if (client.acceptor.open(ACE_INET_Addr(LOCAL_LISTEN_PORT)) == -1)  
+		AfxMessageBox(_T("Port Listening Failed!")); 
+	else
+	{
+		AfxMessageBox(_T("Port Listening Successful!")); 
+	}
+    //Wait 4 client Connection
+    ACE_Proactor::instance()->proactor_run_event_loop();
+	//Release dll resource
+	ACE::fini();
+   /* if(ServerConnector::getInstance()->connect(REMOTE_HOST_PORT,REMOTE_HOST_IP) == 0)  
+    {  
+        AfxMessageBox(_T("Connection Successful!"));
     }
 	else
 	{  
         AfxMessageBox(_T("Connectin Failed!"));  
-    }
+    }*/
 }
 
 void CMFC_ClientDlg::sendClientMessage(char* msg)
 {
-	ServerConnector::getInstance()->sendMessage(msg);
+	//ServerConnector::getInstance()->sendMessage(msg);
 }
 
 
@@ -200,7 +228,7 @@ void CMFC_ClientDlg::OnBnClickedButton2()
 	//UpdateData(true);
 	//USES_CONVERSION;
 	//LPSTR str = T2A(m_send);
-	Client::getInstance()->sendMessage("s");
+	//Client::getInstance()->sendMessage("s");
 	GetDlgItem(IDC_EDIT1)->EnableWindow(true);
 	GetDlgItem(IDC_BUTTON3)->EnableWindow(true);
 
@@ -210,7 +238,7 @@ void CMFC_ClientDlg::OnBnClickedButton2()
 	pdlg->Init();
 	//pdlg->DrawClient();
 	pdlg->setParent(this);
-	Client::getInstance()->holdWindowInstance(pdlg);
+	//Client::getInstance()->holdWindowInstance(pdlg);
 }
 
 
@@ -228,7 +256,7 @@ void CMFC_ClientDlg::OnEnChangeEdit1()
 void CMFC_ClientDlg::OnBnClickedCancel()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	ServerConnector::getInstance()->close();  
+	//ServerConnector::getInstance()->close();  
 	ACE::fini();
 	CDialog::OnCancel();  
 }
@@ -237,16 +265,16 @@ void CMFC_ClientDlg::OnBnClickedCancel()
 void CMFC_ClientDlg::OnBnClickedButton3()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	UpdateData(true);
-	char* chat_msg = (LPSTR)(LPCTSTR)m_send;
-	char buf[128];
-	if(chat_msg != "")
-	{
-		buf[0] = CHAT;
-		buf[1] = '\0';
-		strcat(buf,chat_msg);
-	}
-	ServerConnector::getInstance()->sendMessage(buf);
-	//delete chat_msg;
-	GetDlgItem(IDC_EDIT1)->SetWindowText(_T(""));
+	//UpdateData(true);
+	//char* chat_msg = (LPSTR)(LPCTSTR)m_send;
+	//char buf[128];
+	//if(chat_msg != "")
+	//{
+	//	buf[0] = CHAT;
+	//	buf[1] = '\0';
+	//	strcat(buf,chat_msg);
+	//}
+	//ServerConnector::getInstance()->sendMessage(buf);
+	////delete chat_msg;
+	//GetDlgItem(IDC_EDIT1)->SetWindowText(_T(""));
 }

@@ -25,33 +25,15 @@ CanvasFrame::~CanvasFrame()
 {
 }
 
-char* CanvasFrame::Init()
+void CanvasFrame::Init()
 {
 	this->GetClientRect(&this->client_rect);
 	//this->client_rect.bottom - 100;
-	char x[8];
-	char y[8];
-	char dot[2] = ",";
-	itoa(client_rect.BottomRight().x - client_rect.TopLeft().x,x,10);
-	itoa(client_rect.BottomRight().y - client_rect.TopLeft().y,y,10);
-
-	//CString str;
-	//str.Format(_T("%s"), Client::getInstance()->makeCommand(x,DECLARE_SIZE));
-	//AfxMessageBox(str);
-
-	char msg[10];
-	msg[0] = DECLARE_SIZE;
-	msg[1] = '\0';
-	strcat(msg,x);
-	strcat(msg,dot);
-	strcat(msg,y);
-
 	//Client::getInstance()->sendMessage(msg);
 
 	SetTimer(ID_TIMER1,50,NULL);
 	this->hdc = GetDC()->GetSafeHdc();
 	this->DrawBackground(hdc,client_rect);
-	return msg;
 }
 
 void CanvasFrame::setParent(CMFC_ClientDlg* Parent)
@@ -133,32 +115,28 @@ BOOL CanvasFrame::PreTranslateMessage(MSG *pMsg)
 void CanvasFrame::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	char buf[5];
-	buf[0] = MOVE;
-
 	switch(nChar)
 	{
 	case VK_UP:
 		
-		buf[1] = 'U';
 		//this->setPos(this->xPos,this->yPos - 5);
 		break;
 	case VK_DOWN:
-		buf[1] = 'D';
+
 		//this->setPos(this->xPos,this->yPos + 5);
 		break;
 	case VK_LEFT:
-		buf[1] = 'L';
+
 		//this->setPos(this->xPos - 5,this->yPos);
 		break;
 	case VK_RIGHT:
-		buf[1] = 'R';
+
 		//this->setPos(this->xPos + 5,this->yPos);
 		break;
 	}
 
-	buf[2] = '\0';
-	Client::getInstance()->sendMessage(buf);
+	//buf[2] = '\0';
+	//Client::getInstance()->sendMessage(buf);
 
 	CDialogEx::OnKeyDown(nChar, nRepCnt, nFlags);
 	

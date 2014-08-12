@@ -1,8 +1,8 @@
 #pragma once
+#include <string>
 #include "ace/FILE_Addr.h"
 #include "ace/FILE_IO.h"
 #include "ace/FILE_Connector.h"
-#include <string>
 
 class LocalFile
 {
@@ -20,7 +20,7 @@ public:
 	int write(char *data, int length);
 	int read(char *data, int length);
 
-	const char* getPathName() const { return this->fileAddr.get_path_name(); }
+	const char* getPathName() const { return this->fileAddr.get_path_name();}
 	const char* getFileName() const { return this->pureFileName.c_str();}
 
 private:

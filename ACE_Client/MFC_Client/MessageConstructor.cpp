@@ -2,6 +2,18 @@
 #include "StdAfx.h"
 #include "MessageConstructor.h"
 
+MessageConstructor::MessageConstructor()
+{
+	;
+}
+
+MessageConstructor* MessageConstructor::MCsingleton = NULL;
+
+MessageConstructor::~MessageConstructor()
+{
+	;
+}
+
 ACE_Message_Block* MessageConstructor::createConnection()
 {
 	cdrOut << ACE_CDR::UShort(COM::CONNECT_SERVER);

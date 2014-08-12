@@ -8,5 +8,6 @@
 #include "ace/OS_NS_string.h" 
 #include "ace/CDR_Stream.h"
 #include "ace/Asynch_Acceptor.h"
-#include "ace/Asynch_Connector.h"  
+#include "ace/Asynch_Connector.h"
+#include "ace/Proactor.h"  
 #include "ace/SOCK_SEQPACK_Association.h"

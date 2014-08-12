@@ -103,12 +103,17 @@
     <None Include="res\MFC_Client.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ACE_Connector.h" />
     <ClInclude Include="ACE_headers.h" />
+    <ClInclude Include="Block.h" />
     <ClInclude Include="CanvasFrame.h" />
     <ClInclude Include="DVE_Client.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="MessageDispatcher.h" />
     <ClInclude Include="MessageHandler.h" />
     <ClInclude Include="Reciever.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sender.h" />
     <ClInclude Include="ServerConnector.h" />
     <ClInclude Include="COM.h" />
@@ -123,12 +128,19 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="type.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ACE_Connector.cpp" />
     <ClCompile Include="CanvasFrame.cpp" />
+    <ClCompile Include="COM.cpp" />
     <ClCompile Include="DVE_Client.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MessageDispatcher.cpp" />
     <ClCompile Include="MessageHandler.cpp" />
     <ClCompile Include="Reciever.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Sender.cpp" />
     <ClCompile Include="ServerConnector.cpp" />
     <ClCompile Include="LocalFile.cpp" />
     <ClCompile Include="MessageConstructor.cpp" />
